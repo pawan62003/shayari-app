@@ -1,17 +1,19 @@
 const express = require('express');
 const axios = require('axios');
+const cors = require("cors")
 require("dotenv").config()
 
 const app = express();
 const port = 3000;
 
 app.use(express.json())
+app.use(cors())
 
 app.get('/shayari', async (req, res) => {
     
     try {
       const keyword = req.query.keyword
-      console.log(keyword)
+    //   console.log(keyword)
       if(keyword){
 
     const prompt = `Write a beautiful Shayari about ${keyword} in hindi.`; // The prompt for generating Shayari
